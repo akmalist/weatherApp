@@ -1,11 +1,28 @@
+  
+  let weatherInfo = document.getElementById('weather');
+
+  weatherInfo.addEventListener('click', function(event){
+    event.preventDefault();
+    var cityName = document.getElementById('cityName').value;
+    console.log(cityName);
+    
+    var key = '89a75e05a8fb64556b3c3f00e5032c20';
+    var url = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=89a75e05a8fb64556b3c3f00e5032c20";
+    fetch(url)  
+    .then(function(resp) { return resp.json() }) // Convert data to json
+    .then(function(data) {
+      console.log(data);
+    })
+    .catch(function() {
+      // catch any errors'
+    });
 
 
-const url = "http://dataservice.accuweather.com/currentconditions/v1/{locationKey}"
-let response = await fetch(url);
+    })
+  
 
-if (response.ok) { // if HTTP-status is 200-299
-  // get the response body (the method explained below)
-  let json = await response.json();
-} else {
-  alert("HTTP-Error: " + response.status);
-}
+
+
+
+ 
+ 
